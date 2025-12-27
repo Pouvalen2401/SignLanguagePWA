@@ -1,0 +1,10 @@
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+body{margin:0;padding:0;background:#f7f9fc;color:#111}
+header,footer{padding:10px 16px;background:#fff;border-bottom:1px solid #e6eef8}
+main{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+#cameraPanel,#avatarPanel,#translationPanel,#privacyPanel{background:#fff;padding:12px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+#camera{width:100%;height:auto;border-radius:6px;background:#000}
+#avatarContainer{width:100%;height:360px}
+button{padding:8px 10px;border-radius:4px;border:1px solid #cbdcee;background:#0078d4;color:#fff}
+textarea{width:100%;height:80px}
+@media(max-width:900px){main{grid-template-columns:1fr}}

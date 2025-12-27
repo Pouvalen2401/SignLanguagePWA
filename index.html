@@ -1,11 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Language App</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>SignLanguagePWA</title>
+	<link rel="manifest" href="/manifest.json" />
+	<link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
-    <h1>Welcome to the Sign Language App</h1>
+	<header>
+		<h1>SignLanguagePWA</h1>
+		<div id="userInfo">
+			<span id="userName">Guest</span>
+			<button id="signInBtn">Sign in</button>
+			<button id="guestBtn">Guest mode</button>
+		</div>
+	</header>
+
+	<main>
+		<section id="cameraPanel">
+			<video id="camera" autoplay playsinline muted></video>
+			<canvas id="overlay"></canvas>
+			<div id="controls">
+				<button id="startCam">Start Camera</button>
+				<button id="startDetect">Start Sign→Text</button>
+				<button id="stopDetect">Stop</button>
+			</div>
+		</section>
+
+		<section id="translationPanel">
+			<div>
+				<h2>Live Translation (Sign → Text)</h2>
+				<div id="liveText" aria-live="polite"></div>
+			</div>
+			<div>
+				<h2>Text → Sign</h2>
+				<textarea id="textToSign" placeholder="Type text..."></textarea>
+				<button id="playSign">Play on Avatar</button>
+			</div>
+		</section>
+
+		<section id="avatarPanel">
+			<h2>Avatar</h2>
+			<div id="avatarContainer"></div>
+			<button id="customizeAvatar">Customize Avatar</button>
+		</section>
+
+		<section id="privacyPanel">
+			<h3>Privacy & Consent</h3>
+			<label><input type="checkbox" id="consentBiometrics"> Opt-in to encrypted on-server sync of biometric templates</label>
+			<button id="resetProfile">Reset Profile</button>
+		</section>
+	</main>
+
+	<footer>
+		<small>Designed for shared school devices. No raw biometrics sent without opt-in.</small>
+	</footer>
+
+	<script type="module" src="/assets/js/app.js"></script>
+	<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');</script>
 </body>
 </html>
